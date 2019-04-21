@@ -1,0 +1,1 @@
+Splatoon Game Predictor
