@@ -30,30 +30,42 @@
           <form class="needs-validation" method="post" novalidate>
 
             <div class="row">
-              <div class="col-md-6 d-block mb-3">
+              <div class="col-md-4 d-block mb-3">
+                  <label for="lobby_mode">Lobby Mode</label>
+                  <div class="custom-control custom-radio">
+                    <input id="ranked_battle" name="lobby_mode" type="radio" class="custom-control-input" value ="Ranked Battle" checked required>
+                    <label class="custom-control-label" for="ranked_battle">Ranked Battle</label>
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input id="regular_battle" name="lobby_mode" type="radio" class="custom-control-input" value ="Regular Battle" required>
+                    <label class="custom-control-label" for="regular_battle">Regular Battle</label>
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input id="private_battle_type" name="lobby_mode" type="radio" class="custom-control-input" value ="Private Battle" required>
+                    <label class="custom-control-label" for="private_battle_type">Private Battle</label>
+                  </div>
+              </div>
+
+              <div class="col-md-4 d-block mb-3">
                 <label for="lobby_type">Lobby Type</label>
                 <div class="custom-control custom-radio">
-                  <input id="regular_battle" name="lobby_type" type="radio" class="custom-control-input" checked required>
-                  <label class="custom-control-label" for="regular_battle">Regular Battle (Turf War)</label>
+                  <input id="solo_queue" name="lobby_type" type="radio" class="custom-control-input" value ="Solo Queue" checked required>
+                  <label class="custom-control-label" for="solo_queue">Solo Queue</label>
                 </div>
                 <div class="custom-control custom-radio">
-                  <input id="solo_queue" name="lobby_type" type="radio" class="custom-control-input" required>
-                  <label class="custom-control-label" for="solo_queue">Solo Queue (Ranked Battle)</label>
-                </div>
-                <div class="custom-control custom-radio">
-                  <input id="duo_league" name="lobby_type" type="radio" class="custom-control-input" required>
+                  <input id="duo_league" name="lobby_type" type="radio" class="custom-control-input" value ="Squad Battle (Twin)" required>
                   <label class="custom-control-label" for="duo_league">Duo League Battle</label>
                 </div>
                 <div class="custom-control custom-radio">
-                  <input id="quad_league" name="lobby_type" type="radio" class="custom-control-input" required>
+                  <input id="quad_league" name="lobby_type" type="radio" class="custom-control-input" value ="Squad Battle (Quad)" required>
                   <label class="custom-control-label" for="quad_league">Quad League Battle</label>
                 </div>
                 <div class="custom-control custom-radio">
-                  <input id="private_battle" name="lobby_type" type="radio" class="custom-control-input" required>
-                  <label class="custom-control-label" for="private_battle">Private Battle</label>
+                  <input id="private_battle_mode" name="lobby_type" type="radio" class="custom-control-input" value ="Private Battle" required>
+                  <label class="custom-control-label" for="private_battle_mode">Private Battle</label>
                 </div>
               </div>
-              <div class="col-md-6 d-block my-3">
+              <div class="col-md-4 d-block my-3">
                  <label for="game_mode">Game Mode</label>
                 <div class="custom-control custom-radio">
                   <input id="turf_war" name="game_mode" type="radio" class="custom-control-input" value ="Turf War" checked required>
@@ -128,7 +140,7 @@
 
               <div class="col-md-6 mb-3">
                 <label for="rank">Rank</label>
-                <select class="custom-select d-block w-100" id="rank" required>
+                <select class="custom-select d-block w-100" id="rank" name="rank" required>
                   <option value="">Choose...</option>
                   <option>None</option>
                   <option>X</option>
@@ -344,17 +356,17 @@
       });
 
       function processData(allText) {
-          var record_num = 3;  // or however many elements there are in each row
+          var record_num = 4;  // or however many elements there are in each row
           var allTextLines = allText.split(/\r\n|\n/);
-          var entries = allTextLines[0].split(';');
+          var entries = allTextLines[0].split(',');
           var weapon_data = [];
 
           var headings = entries.splice(0,record_num);
 
           for(var i = 1; i < allTextLines.length; i++){
-             var entries = allTextLines[i].split(';');
+             var entries = allTextLines[i].split(',');
              data = entries.splice(0,record_num);
-             weapon_data.push(data[0] + "; " + data[1] + "; " + data[2]);
+             weapon_data.push(data[0] + ", " + data[1] + ", " + data[2] + ", " + data[3]);
 
           }
 

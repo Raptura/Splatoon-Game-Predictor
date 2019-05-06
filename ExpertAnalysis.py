@@ -13,6 +13,9 @@ from sklearn import naive_bayes
 #%%
 df = pd.read_csv("all_game_data.csv")
 df.head()
+print(df.columns)
+print(df["lobby_mode"].value_counts())
+print(df["lobby_type"].value_counts())
 
 #%%
 print("Mean Kills:", df["kills"].mean())
@@ -49,6 +52,7 @@ data = df[:]
 
 Y = list(df["result"])
 del df['result']
+del df['game_id']
 X = df[:]
 
 
