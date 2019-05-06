@@ -103,6 +103,6 @@ cv_search.fit(X_train, y_train)
 print(cv_search.score(X_test,y_test))
 
 from joblib import dump, load
-dump(aba, 'best_classifier.joblib') 
+dump(cv_search.best_estimator_, 'best_classifier.joblib') 
 
 #%%

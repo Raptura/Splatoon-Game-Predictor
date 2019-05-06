@@ -12,14 +12,14 @@
 
     <!-- Bootstrap core CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="autocomplete.css" rel="stylesheet">
+    <link href="/static/autocomplete.css" rel="stylesheet">
   </head>
 
   <body class="bg-light">
 
     <div class="container">
       <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="splatoon_missles_icon.png" alt="" width="30%" height="30%">
+        <img class="d-block mx-auto mb-4" src="/static/splatoon_missles_icon.png" alt="" width="30%" height="30%">
         <h2>Splatoon 2 Game Predictor</h2>
         <p class="lead"></p>
       </div>
@@ -27,7 +27,7 @@
       <div class="row">
         <div class="col-md-12 order-md-1">
           <h4 class="mb-3">Map and Mode Information</h4>
-          <form class="needs-validation" novalidate>
+          <form class="needs-validation" method="post" novalidate>
 
             <div class="row">
               <div class="col-md-6 d-block mb-3">
@@ -37,42 +37,42 @@
                   <label class="custom-control-label" for="regular_battle">Regular Battle (Turf War)</label>
                 </div>
                 <div class="custom-control custom-radio">
-                  <input id="solo_queue" name="lobby_type" type="radio" class="custom-control-input" checked required>
+                  <input id="solo_queue" name="lobby_type" type="radio" class="custom-control-input" required>
                   <label class="custom-control-label" for="solo_queue">Solo Queue (Ranked Battle)</label>
                 </div>
                 <div class="custom-control custom-radio">
-                  <input id="duo_league" name="lobby_type" type="radio" class="custom-control-input" checked required>
+                  <input id="duo_league" name="lobby_type" type="radio" class="custom-control-input" required>
                   <label class="custom-control-label" for="duo_league">Duo League Battle</label>
                 </div>
                 <div class="custom-control custom-radio">
-                  <input id="quad_league" name="lobby_type" type="radio" class="custom-control-input" checked required>
+                  <input id="quad_league" name="lobby_type" type="radio" class="custom-control-input" required>
                   <label class="custom-control-label" for="quad_league">Quad League Battle</label>
                 </div>
                 <div class="custom-control custom-radio">
-                  <input id="private_battle" name="lobby_type" type="radio" class="custom-control-input" checked required>
+                  <input id="private_battle" name="lobby_type" type="radio" class="custom-control-input" required>
                   <label class="custom-control-label" for="private_battle">Private Battle</label>
                 </div>
               </div>
               <div class="col-md-6 d-block my-3">
                  <label for="game_mode">Game Mode</label>
                 <div class="custom-control custom-radio">
-                  <input id="turf_war" name="game_mode" type="radio" class="custom-control-input" checked required>
+                  <input id="turf_war" name="game_mode" type="radio" class="custom-control-input" value ="Turf War" checked required>
                   <label class="custom-control-label" for="turf_war">Turf War</label>
                 </div>
                 <div class="custom-control custom-radio">
-                  <input id="splat_zones" name="game_mode" type="radio" class="custom-control-input" required>
+                  <input id="splat_zones" name="game_mode" type="radio" class="custom-control-input" value="Splat Zones" required>
                   <label class="custom-control-label" for="splat_zones">Splat Zones</label>
                 </div>
                 <div class="custom-control custom-radio">
-                  <input id="rainmaker" name="game_mode" type="radio" class="custom-control-input" required>
+                  <input id="rainmaker" name="game_mode" type="radio" class="custom-control-input" value="Rainmaker" required>
                   <label class="custom-control-label" for="rainmaker">Rainmaker</label>
                 </div>
                 <div class="custom-control custom-radio">
-                  <input id="tower_control" name="game_mode" type="radio" class="custom-control-input" required>
+                  <input id="tower_control" name="game_mode" type="radio" class="custom-control-input" value="Tower Control" required>
                   <label class="custom-control-label" for="tower_control">Tower Control</label>
                 </div>
                 <div class="custom-control custom-radio">
-                  <input id="clam_blitz" name="game_mode" type="radio" class="custom-control-input" required>
+                  <input id="clam_blitz" name="game_mode" type="radio" class="custom-control-input" value="Clam Blitz" required>
                   <label class="custom-control-label" for="clam_blitz">Clam Blitz</label>
                 </div>
               </div>
@@ -81,7 +81,7 @@
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="game_map">Map</label>
-                <select class="custom-select d-block w-100" id="game_map" required>
+                <select class="custom-select d-block w-100" id="game_map" name="game_map" required>
                   <option value="">Choose...</option>
                   <option>Ancho-V Games</option>
                   <option>Arowana Mall</option>
@@ -119,8 +119,8 @@
 
             <div class="row">
               <div class="col-md-6 mb-3 autocomplete">
-                <label for="cc-expiration">Weapon</label>
-                <input type="text" class="form-control" id="weapon" placeholder="" required>
+                <label for="weapon">Weapon</label>
+                <input type="text" class="form-control" id="weapon" placeholder="" name="weapon" required>
                 <div class="invalid-feedback">
                   Valid Weapon required
                 </div>
@@ -151,23 +151,37 @@
             </div>
 
             <div class="row">
-              <div class="col-md-3 mb-3">
+              <div class="col-md-2 mb-3">
                 <label for="cc-expiration">Kills</label>
-                <input type="number" class="form-control" id="kills" placeholder="" required>
+                <input type="number" class="form-control" id="kills" placeholder="" name="kills" required>
                 <div class="invalid-feedback">
                   Number of Kills required
                 </div>
               </div>
-              <div class="col-md-3 mb-3">
+                  <div class="col-md-2 mb-3">
+                <label for="cc-expiration">Assists</label>
+                <input type="number" class="form-control" id="assists" placeholder="" name="assists" required>
+                <div class="invalid-feedback">
+                  Number of Assists required
+                </div>
+              </div>
+              <div class="col-md-2 mb-3">
                 <label for="cc-expiration">Deaths</label>
-                <input type="number" class="form-control" id="deaths" placeholder="" required>
+                <input type="number" class="form-control" id="deaths" placeholder="" name="deaths" required>
                 <div class="invalid-feedback">
                   Number of Deaths required
                 </div>
               </div>
+              <div class="col-md-2 mb-3">
+                <label for="cc-expiration">Specials</label>
+                <input type="number" class="form-control" id="specials" placeholder="" name="specials" required>
+                <div class="invalid-feedback">
+                  Number of Specials required
+                </div>
+              </div>
               <div class="col-md-3 mb-3">
                 <label for="turfed_ink">Turfed Ink</label>
-                <input type="number" class="form-control" id="turfed_ink" placeholder="" required>
+                <input type="number" class="form-control" id="turfed_ink" placeholder="" name="turfed_ink" required>
                 <div class="invalid-feedback">
                   Turfed Ink Required
                 </div>
@@ -193,7 +207,6 @@
     <!-- Placed at the end of the document so the pages load faster -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 
@@ -324,7 +337,7 @@
       $(document).ready(function() {
           $.ajax({
               type: "GET",
-              url: "weapon_data.csv",
+              url: "/static/weapon_data.csv",
               dataType: "text",
               success: function(data) {processData(data);}
           });
@@ -336,24 +349,17 @@
           var entries = allTextLines[0].split(';');
           var weapon_data = [];
 
-          var weapons = [];
-          var subs = [];
-          var specials = [];
-
           var headings = entries.splice(0,record_num);
 
           for(var i = 1; i < allTextLines.length; i++){
              var entries = allTextLines[i].split(';');
              data = entries.splice(0,record_num);
-             weapons.push(data[0]);
-             subs.push(data[1]);
-             specials.push(data[2]);
-          }
-          weapon_data.push(weapons);
-          weapon_data.push(subs);
-          weapon_data.push(specials);
+             weapon_data.push(data[0] + "; " + data[1] + "; " + data[2]);
 
-          autocomplete(document.getElementById("weapon"), weapon_data[0]);
+          }
+
+
+          autocomplete(document.getElementById("weapon"), weapon_data);
       }
 
 
