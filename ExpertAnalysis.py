@@ -45,7 +45,9 @@ print(df["game_map"].value_counts())
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
 
-Y = df["result"]
+data = df[:]
+
+Y = list(df["result"])
 del df['result']
 X = df[:]
 
@@ -56,6 +58,15 @@ min_max_scaler = preprocessing.MinMaxScaler()
 X = enc.fit_transform(X)
 X = min_max_scaler.fit_transform(X)
 print(X)
+
+for i in range(len(Y)):
+    if Y[i] == "win":
+        Y[i] = 1
+    else:
+        Y[i] = 0
+
+print(Y)
+
 
 X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.33)
 
@@ -91,5 +102,7 @@ cv_search = model_selection.GridSearchCV(aba, param_grid=params, scoring="averag
 cv_search.fit(X_train, y_train)
 print(cv_search.score(X_test,y_test))
 
+from joblib import dump, load
+dump(aba, 'best_classifier.joblib') 
 
 #%%
