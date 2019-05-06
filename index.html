@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="A game predictor for Splatoon 2">
+    <meta name="author" content="Armond Smith, Kyle Coughlin">
 
-    <title>Splatoon 2 Weapons Predictor</title>
+    <title>Splatoon 2 Game Predictor</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/checkout/">
 
@@ -83,7 +83,29 @@
                 <label for="game_map">Map</label>
                 <select class="custom-select d-block w-100" id="game_map" required>
                   <option value="">Choose...</option>
+                  <option>Ancho-V Games</option>
+                  <option>Arowana Mall</option>
+                  <option>Blackbelly Skatepark</option>
+                  <option>Camp Triggerfish</option>
+                  <option>Goby Arena</option>
+                  <option>Humpback Pump Track</option>
+                  <option>Inkblot Art Academy</option>
+                  <option>Kelp Dome</option>
+                  <option>MakoMart</option>
+                  <option>Manta Maria</option>
+                  <option>Moray Towers</option>
+                  <option>Musselforge Fitness</option>
+                  <option>New Albacore Hotel</option>
+                  <option>Piranha Pit</option>
+                  <option>Port Mackerel</option>
+                  <option>Shellendorf Institute</option>
+                  <option>Skipper Pavilion</option>
+                  <option>Snapper Canal</option>
+                  <option>Starfish Mainstage</option>
+                  <option>Sturgeon Shipyard</option>
                   <option>The Reef</option>
+                  <option>Wahoo World</option>
+                  <option>Walleye Warehouse</option>
                 </select>
                 <div class="invalid-feedback">
                   Please provide a valid map.
@@ -96,15 +118,36 @@
             <h4 class="mb-3">Your end of game stats</h4>
 
             <div class="row">
-              <div class="col-md-6 mb-3">
-                <div class="autocomplete">
-                  <label for="cc-expiration">Weapon</label>
-                  <input type="text" class="form-control" id="weapon" placeholder="" required>
-                  <div class="invalid-feedback">
-                    Valid Weapon required
-                  </div>
+              <div class="col-md-6 mb-3 autocomplete">
+                <label for="cc-expiration">Weapon</label>
+                <input type="text" class="form-control" id="weapon" placeholder="" required>
+                <div class="invalid-feedback">
+                  Valid Weapon required
                 </div>
               </div>
+
+              <div class="col-md-6 mb-3">
+                <label for="rank">Rank</label>
+                <select class="custom-select d-block w-100" id="rank" required>
+                  <option value="">Choose...</option>
+                  <option>None</option>
+                  <option>X</option>
+                  <option>S+</option>
+                  <option>S</option>
+                  <option>A+</option>
+                  <option>A</option>
+                  <option>A-</option>
+                  <option>B+</option>
+                  <option>B</option>
+                  <option>B-</option>
+                  <option>C+</option>
+                  <option>C</option>
+                  <option>C-</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please provide a valid map.
+                </div>
+              </div>       
             </div>
 
             <div class="row">
