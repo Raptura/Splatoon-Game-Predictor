@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Splatoon 2 Weapons Predictor</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/checkout/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="autocomplete.css" rel="stylesheet">
+  </head>
+
+  <body class="bg-light">
+
+    <div class="container">
+      <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="splatoon_missles_icon.png" alt="" width="30%" height="30%">
+        <h2>Splatoon 2 Game Predictor</h2>
+        <p class="lead"></p>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 order-md-1">
+          <h4 class="mb-3">Map and Mode Information</h4>
+          <form class="needs-validation" novalidate>
+
+            <div class="row">
+              <div class="col-md-6 d-block mb-3">
+                <label for="lobby_type">Lobby Type</label>
+                <div class="custom-control custom-radio">
+                  <input id="regular_battle" name="lobby_type" type="radio" class="custom-control-input" checked required>
+                  <label class="custom-control-label" for="regular_battle">Regular Battle (Turf War)</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input id="solo_queue" name="lobby_type" type="radio" class="custom-control-input" checked required>
+                  <label class="custom-control-label" for="solo_queue">Solo Queue (Ranked Battle)</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input id="duo_league" name="lobby_type" type="radio" class="custom-control-input" checked required>
+                  <label class="custom-control-label" for="duo_league">Duo League Battle</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input id="quad_league" name="lobby_type" type="radio" class="custom-control-input" checked required>
+                  <label class="custom-control-label" for="quad_league">Quad League Battle</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input id="private_battle" name="lobby_type" type="radio" class="custom-control-input" checked required>
+                  <label class="custom-control-label" for="private_battle">Private Battle</label>
+                </div>
+              </div>
+              <div class="col-md-6 d-block my-3">
+                 <label for="game_mode">Game Mode</label>
+                <div class="custom-control custom-radio">
+                  <input id="turf_war" name="game_mode" type="radio" class="custom-control-input" checked required>
+                  <label class="custom-control-label" for="turf_war">Turf War</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input id="splat_zones" name="game_mode" type="radio" class="custom-control-input" required>
+                  <label class="custom-control-label" for="splat_zones">Splat Zones</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input id="rainmaker" name="game_mode" type="radio" class="custom-control-input" required>
+                  <label class="custom-control-label" for="rainmaker">Rainmaker</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input id="tower_control" name="game_mode" type="radio" class="custom-control-input" required>
+                  <label class="custom-control-label" for="tower_control">Tower Control</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input id="clam_blitz" name="game_mode" type="radio" class="custom-control-input" required>
+                  <label class="custom-control-label" for="clam_blitz">Clam Blitz</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="game_map">Map</label>
+                <select class="custom-select d-block w-100" id="game_map" required>
+                  <option value="">Choose...</option>
+                  <option>The Reef</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please provide a valid map.
+                </div>
+              </div>           
+            </div>
+
+            <hr class="mb-4">
+
+            <h4 class="mb-3">Your end of game stats</h4>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="autocomplete">
+                  <label for="cc-expiration">Weapon</label>
+                  <input type="text" class="form-control" id="weapon" placeholder="" required>
+                  <div class="invalid-feedback">
+                    Valid Weapon required
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-3 mb-3">
+                <label for="cc-expiration">Kills</label>
+                <input type="number" class="form-control" id="kills" placeholder="" required>
+                <div class="invalid-feedback">
+                  Number of Kills required
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="cc-expiration">Deaths</label>
+                <input type="number" class="form-control" id="deaths" placeholder="" required>
+                <div class="invalid-feedback">
+                  Number of Deaths required
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="turfed_ink">Turfed Ink</label>
+                <input type="number" class="form-control" id="turfed_ink" placeholder="" required>
+                <div class="invalid-feedback">
+                  Turfed Ink Required
+                </div>
+              </div>
+            </div>
+
+            <hr class="mb-4">
+
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Predict!</button>
+
+          </form>
+        </div>
+      </div>
+
+      <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">Created By Armond Smith and Kyle Coughlin</p>
+        <p class="mb-1">Spring 2019 CIS 3715</p>
+      </footer>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+    </script>
+
+    <script>
+        function autocomplete(inp, arr) {
+          /*the autocomplete function takes two arguments,
+          the text field element and an array of possible autocompleted values:*/
+          var currentFocus;
+          /*execute a function when someone writes in the text field:*/
+          inp.addEventListener("input", function(e) {
+              var a, b, i, val = this.value;
+              /*close any already open lists of autocompleted values*/
+              closeAllLists();
+              if (!val) { return false;}
+              currentFocus = -1;
+              /*create a DIV element that will contain the items (values):*/
+              a = document.createElement("DIV");
+              a.setAttribute("id", this.id + "autocomplete-list");
+              a.setAttribute("class", "autocomplete-items");
+              /*append the DIV element as a child of the autocomplete container:*/
+              this.parentNode.appendChild(a);
+              /*for each item in the array...*/
+              for (i = 0; i < arr.length; i++) {
+                /*check if the item starts with the same letters as the text field value:*/
+                if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                  /*create a DIV element for each matching element:*/
+                  b = document.createElement("DIV");
+                  /*make the matching letters bold:*/
+                  b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+                  b.innerHTML += arr[i].substr(val.length);
+                  /*insert a input field that will hold the current array item's value:*/
+                  b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+                  /*execute a function when someone clicks on the item value (DIV element):*/
+                      b.addEventListener("click", function(e) {
+                      /*insert the value for the autocomplete text field:*/
+                      inp.value = this.getElementsByTagName("input")[0].value;
+                      /*close the list of autocompleted values,
+                      (or any other open lists of autocompleted values:*/
+                      closeAllLists();
+                  });
+                  a.appendChild(b);
+                }
+              }
+          });
+          /*execute a function presses a key on the keyboard:*/
+          inp.addEventListener("keydown", function(e) {
+              var x = document.getElementById(this.id + "autocomplete-list");
+              if (x) x = x.getElementsByTagName("div");
+              if (e.keyCode == 40) {
+                /*If the arrow DOWN key is pressed,
+                increase the currentFocus variable:*/
+                currentFocus++;
+                /*and and make the current item more visible:*/
+                addActive(x);
+              } else if (e.keyCode == 38) { //up
+                /*If the arrow UP key is pressed,
+                decrease the currentFocus variable:*/
+                currentFocus--;
+                /*and and make the current item more visible:*/
+                addActive(x);
+              } else if (e.keyCode == 13) {
+                /*If the ENTER key is pressed, prevent the form from being submitted,*/
+                e.preventDefault();
+                if (currentFocus > -1) {
+                  /*and simulate a click on the "active" item:*/
+                  if (x) x[currentFocus].click();
+                }
+              }
+          });
+          function addActive(x) {
+            /*a function to classify an item as "active":*/
+            if (!x) return false;
+            /*start by removing the "active" class on all items:*/
+            removeActive(x);
+            if (currentFocus >= x.length) currentFocus = 0;
+            if (currentFocus < 0) currentFocus = (x.length - 1);
+            /*add class "autocomplete-active":*/
+            x[currentFocus].classList.add("autocomplete-active");
+          }
+          function removeActive(x) {
+            /*a function to remove the "active" class from all autocomplete items:*/
+            for (var i = 0; i < x.length; i++) {
+              x[i].classList.remove("autocomplete-active");
+            }
+          }
+          function closeAllLists(elmnt) {
+            /*close all autocomplete lists in the document,
+            except the one passed as an argument:*/
+            var x = document.getElementsByClassName("autocomplete-items");
+            for (var i = 0; i < x.length; i++) {
+              if (elmnt != x[i] && elmnt != inp) {
+              x[i].parentNode.removeChild(x[i]);
+            }
+          }
+        }
+        /*execute a function when someone clicks in the document:*/
+        document.addEventListener("click", function (e) {
+            closeAllLists(e.target);
+        });
+      } 
+    </script>
+
+
+     <script>
+      $(document).ready(function() {
+          $.ajax({
+              type: "GET",
+              url: "weapon_data.csv",
+              dataType: "text",
+              success: function(data) {processData(data);}
+          });
+      });
+
+      function processData(allText) {
+          var record_num = 3;  // or however many elements there are in each row
+          var allTextLines = allText.split(/\r\n|\n/);
+          var entries = allTextLines[0].split(';');
+          var weapon_data = [];
+
+          var weapons = [];
+          var subs = [];
+          var specials = [];
+
+          var headings = entries.splice(0,record_num);
+
+          for(var i = 1; i < allTextLines.length; i++){
+             var entries = allTextLines[i].split(';');
+             data = entries.splice(0,record_num);
+             weapons.push(data[0]);
+             subs.push(data[1]);
+             specials.push(data[2]);
+          }
+          weapon_data.push(weapons);
+          weapon_data.push(subs);
+          weapon_data.push(specials);
+
+          autocomplete(document.getElementById("weapon"), weapon_data[0]);
+      }
+
+
+
+      function readData(data){
+        console.log(data);
+
+      }
+    </script> 
+  </body>
+</html>
